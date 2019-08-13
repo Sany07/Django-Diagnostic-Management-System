@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}	
+	<!-- Home -->
+
+	<div class="home_about">
+		<!-- <div class="background_image" style="background-image:url(images/about.jpg)"></div> -->
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/about.jpg' %}" data-speed="0.8"></div>
+
+		<div class="home_container_about">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title_about">About us</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+	<div class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">A few words about us</div>
+					<div class="section_subtitle">too choose from</div>
+				</div>
+			</div>
+			<div class="row about_row row-eq-height">
+				<div class="col-lg-4">
+					<div class="logo">
+						<a href="#">health<span>+</span></a>	
+					</div>
+					<div class="about_text_highlight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem maximus malesuada lorem max imus mauris.</div>
+					<div class="about_text">
+						<p>Aenean sit amet leo id enim dapibus eleifend. Phas ellus ut erat dapibus, tempor sapien non, porta.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="about_text_2">
+						<p>Donec lorem maximus malesuada lorem max imus mauris. Proin vitae tortor nec risus tristiq ue efficitur. Aliquam luctus est urna, id aliqu am orci tempus sed. Aenean sit amet leo id enim dapibus eleifend. Phasellus ut erat dapibus, tempor sapien non, porta urna. Cras quis ante nibh. Proin tincidunt gravida interdum. Proin sed urna mauris.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="about_image"><img src="{% static 'images/about_1.jpg' %}" alt=""></div>
+				</div>
+			</div>
+
+		</div>
+	
+
+	<!-- Milestones -->
+
+
+	<!-- CTA -->
+
+	<div class="cta">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/cta_1.jpg" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="cta_container d-flex flex-xl-row flex-column align-items-xl-start align-items-center justify-content-xl-start justify-content-center">
+						<div class="cta_content text-xl-left text-center">
+							<div class="cta_title">Make an appointment with one of our professional Doctors.</div>
+							<div class="cta_subtitle">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas.</div>
+						</div>
+						<div class="button cta_button ml-xl-auto"><a href="#"><span>call now</span><span>call now</span></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Doctors -->
+	<div class="doctors">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">Our Doctors</div>
+					<div class="section_subtitle">to choose from</div>
+				</div>
+			</div>
+			<div class="row doctors_row">
+				
+				<!-- Doctor -->
+				{% for doctor in doctors %}
+					<div class="col-xl-3 col-md-6">
+						<div class="doctor">
+							<div class="doctor_image"><img src="{{ doctor.Image.url }}" alt=""></div>
+							<div class="doctor_content">
+								<div class="doctor_name"><a href="#">{{ doctor.Name }}</a></div>
+								<div class="doctor_title">{{ doctor.Designation }}</div>
+								<div class="doctor_link"><a href="#">+</a></div>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+
+				
+
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="button doctors_button ml-auto mr-auto"><a href="#"><span>see all doctors</span><span>see all doctors</span></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+{% endblock %}

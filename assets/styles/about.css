@@ -1,0 +1,281 @@
+
+/*********************************
+5. Home
+*********************************/
+.about-padding {
+
+    padding-bottom: 406px !important;
+
+}
+.home_about
+{
+	width: 100%;
+	height: 382px;
+}
+.home_container_about
+{
+	position: absolute;
+	bottom: 79px;
+	left: 0;
+	width: 100%;
+}
+
+.home_title_about
+{
+	display: inline-block;
+	height: 54px;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 54px;
+	text-align: center;
+	color: #FFFFFF;
+	background: #32c69a;
+	padding-left: 17px;
+	padding-right: 19px;
+}
+
+/*********************************
+6. About
+*********************************/
+
+.about
+{
+	width: 100%;
+	background: #FFFFFF;
+	padding-top: 70px;;
+	padding-bottom: 113px;
+}
+.about_row
+{
+	margin-top: 200px;
+	padding: 5px
+}
+.about_text_highlight
+{
+	font-size: 16px;
+	font-weight: 700;
+	color: #404040;
+	margin-top: 28px;
+}
+.about_text
+{
+	margin-top: 13px;
+}
+
+.about_image img
+{
+	position: absolute;
+	top: 25px;
+	transform: translateY(-50%);
+	height: 355px;
+	width: 286px;
+	padding: 4px;
+	left: 126px;
+}
+.about_button
+{
+	margin-top: 49px;
+}
+
+/*********************************
+7. Milestones
+*********************************/
+
+.milestones
+{
+	width: 100%;
+	background: #f5f6f8;
+	padding-top: 88px;
+	padding-bottom: 93px;
+}
+.milestone
+{
+	width: 100%;
+}
+.milestone_icon
+{
+	display: inline-block;
+	height: 65px;
+	width: 65px;
+}
+.milestone_icon img
+{
+	max-width: 100%;
+}
+.milestone_content
+{
+	padding-left: 29px;
+}
+.milestone_counter
+{
+	font-size: 48px;
+	font-weight: 600;
+	color: #404040;
+	line-height: 0.75;
+}
+.milestone_text
+{
+	font-size: 16px;
+	font-weight: 600;
+	color: #c1c1c1;
+	margin-top: 12px;
+	line-height: 1.2;
+}
+
+
+/*********************************
+9. Doctors
+*********************************/
+
+.doctors
+{
+	width: 100%;
+	background: #FFFFFF;
+	padding-top: 97px;
+	padding-bottom: 210px;
+}
+.doctors_row
+{
+	margin-top: 100px;
+}
+.doctor
+{
+	width: 100%;
+	background: #FFFFFF;
+	margin-bottom: 50px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.doctor::after
+{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: solid 4px #32c69a;
+	background: transparent;
+	content: '';
+	pointer-events: none;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.doctor:hover::after
+{
+	visibility: visible;
+	opacity: 1;
+}
+.doctor:hover
+{
+	box-shadow: 0px 38px 46px rgba(0,0,0,0.3);
+	background: #f4f8fb;
+}
+.doctor_image
+{
+	width: 100%;
+}
+.doctor_image img
+{
+	max-width: 100%;
+}
+.doctor_content
+{
+	width: 100%;
+	padding-left: 29px;
+	padding-top: 29px;
+	padding-bottom: 29px;
+}
+.doctor_content::after
+{
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	background: #32c69a;
+	content: '';
+}
+.doctor_name
+{
+	line-height: 0.75;
+}
+.doctor_name a
+{
+	font-size: 20px;
+	font-weight: 600;
+	color: #404040;
+	line-height: 0.75;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.doctor_name a:hover
+{
+	color: #32c69a;
+}
+.doctor_title
+{
+	font-size: 12px;
+	font-weight: 500;
+	color: #838383;
+	line-height: 0.75;
+	margin-top: 17px;
+}
+.doctor_link
+{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 33px;
+	height: 34px;
+	background: #32c69a;
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.doctor_link a
+{
+	display: block;
+	line-height: 34px;
+	font-size: 30px;
+	color: #FFFFFF;
+}
+.doctor:hover .doctor_link
+{
+	visibility: visible;
+	opacity: 1;
+}
+.doctors_button
+{
+	width: 181px !important;
+	margin-top: 50px;
+	
+}
+.doctors_image
+{
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}

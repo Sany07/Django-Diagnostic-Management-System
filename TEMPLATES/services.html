@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="super_container">
+	<div class="home_about">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/services.jpg' %}" data-speed="0.8"></div>
+
+	<!-- Services -->
+
+		<div class="home_container_about">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title_about">Services</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+	<div class="services">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">Our Services</div>
+					<div class="section_subtitle">to choose from</div>
+				</div>
+			</div>
+			<div class="row icon_boxes_row">
+
+				
+
+					{% for service in services %}
+						<div class="col-xl-4 col-lg-6">
+							<div class="icon_box">
+								<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
+									<div class="icon_box_icon"><img src="{% static 'images/icon_1.svg' %}" alt=""></div>
+									<div class="icon_box_title">{{ service.Title }}</div>
+								</div>
+								<div class="icon_box_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem maximus malesuada lorem maximus mauris.</div>
+							</div>
+						</div>
+					
+					{% endfor %}
+
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="button services_button ml-auto mr-auto"><a href="#"><span>read more</span><span>read more</span></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Boxes -->
+
+	<div class="boxes d-flex flex-lg-row flex-column align-items-start justify-content-start">
+		{% for mission in mission %}
+			{% if mission.Publish %}
+		<!-- Box -->
+			<div class="box">
+				<div class="background_image" style="background-image:url({% static 'images/box_1.jpg' %})"></div>
+				<div class="box_title">{{ mission.Title }}</div>
+				<div class="box_subtitle">{{ mission.Subtitle }}</div>
+				<div class="box_text">{{ mission.Description }}</div>
+				<div class="button box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+			</div>
+			{% endif %}
+		{% endfor %}	
+
+		{% for vision in vision %}
+			{% if vision.Publish %}
+			<div class="box">
+				<div class="background_image" style="background-image:url({% static 'images/box_2.jpg' %})"></div>
+				<div class="box_title">{{ vision.Title }}</div>
+				<div class="box_subtitle">{{ vision.Subtitle }}</div>
+				<div class="box_text">{{ vision.Description }}</div>
+				<div class="button button_2 box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+			</div>
+			{% endif %}
+		{% endfor %}	
+
+
+
+		{% for center in center %}
+
+			{% if center.Publish %}
+				<div class="box">
+					<div class="background_image" style="background-image:url({% static 'images/box_3.jpg' %})"></div>
+					<div class="box_title">{{ center.Title }}</div>
+					<div class="box_subtitle">{{ center.Subtitle }}</div>
+					<div class="box_text">{{ center.Description }}</div>
+					<div class="button box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+				</div>
+			{% endif %}
+		{% endfor %}	
+
+	
+	</div>
+
+	<!-- Tabs -->
+
+	</div>
+
+{% endblock%}

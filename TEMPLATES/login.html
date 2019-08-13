@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="home_contact">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/contact.jpg' %}" data-speed="0.8"></div>
+
+	
+
+		<div class="home_container_contact">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title_contact">Log Up</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact -->
+
+	<div class="contact">
+		<div class="container">
+			<div class="row">
+
+				<!-- Contact form -->
+				<div class="col-lg-12 contact_col">
+					<div class="contact_form">
+						<div class="contact_form_container">
+							<form action="#" id="contact_form" class="contact_form">
+								
+								<input type="email" id="contact_email" class="contact_input" placeholder="Your E-mail" required="required">
+								<input type="password" id="contact_subject" class="contact_input" placeholder="Password" required="required">
+								<button class="contact_button" id="contact_button">Sign Up</button>	<p>Don't have an Account? <a href="#"> Sign Up!</a></p>
+							</form>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

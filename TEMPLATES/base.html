@@ -1,0 +1,163 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Health</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/services.css' %} ">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/contact.css' %} ">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %} ">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %} ">
+
+</head>
+<body>
+
+		<header class="header">
+			<div class="header_top_content">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="logo">
+								<a href="#">Myhealth<span>+</span></a>	
+							</div>
+						</div>
+					<div class="col-lg-8">
+                        <div class="d-flex justify-content-end">
+                            <div class="header_top_nav">
+                                <ul class="d-flex">
+                                    <li><a href="#">Help Desk</a></li>
+                                    <li><a href="#">Emergency Services</a></li>
+                                    <li><a href="{% url 'contact' %}">Appointment</a></li>
+                                </ul>
+                            </div>
+                            <div class="header_top_phone">
+                                <i class="fa fa-phone"></i>
+                                <span>+8801700000000</span>
+                            </div>
+                        </div>
+					</div>
+				</div>
+					</div>
+					</div>
+						<div class="header_nav_container">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-12">
+											<nav class="main_nav">
+												<ul class="d-flex">
+													<li class="active"><a href="{% url 'index' %}">Home</a></li>
+													<li><a href="{% url 'about' %}">About Us</a></li>
+													<li><a href="{% url 'services' %}">Services</a></li>
+                                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                                    <li><a href="{% url 'login' %}">Login</a></li>
+													<li><a href="{% url 'register' %}">Sign Up</a></li>
+												</ul>
+											</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+        </header>      
+
+
+        {% block content %} {% endblock %}
+
+
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/footer.jpg' %}" data-speed="0.8"></div>
+            <div class="footer_content">
+                <div class="container">
+                    <div class="row">
+    
+                        <!-- Footer About -->
+                        <div class="col-lg-3 footer_col">
+                            <div class="footer_about">
+                                <div class="logo">
+                                    <a href="#">health<span>+</span></a>	
+                                </div>
+                                <div class="footer_about_text">
+                                
+                                
+                                
+                                
+                                Lorem ipsum dolor sit amet, lorem maximus consectetur adipiscing elit. Donec malesuada lorem maximus mauris.</div>
+                                <div class="footer_social">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="copyright">
+                                        Copyright &copy;</script> All rights reserved 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Footer Contact -->
+                        <div class="col-lg-5 footer_col">
+                            <div class="footer_contact">
+                                <div class="footer_contact_title">Quick Contact</div>
+                                <div class="footer_contact_form_container">
+                                    <form action="#" class="footer_contact_form" id="footer_contact_form">
+                                        <div class="d-flex flex-xl-row flex-column align-items-center justify-content-between">
+                                            <input type="text" class="footer_contact_input" placeholder="Name" required="required">
+                                            <input type="email" class="footer_contact_input" placeholder="E-mail" required="required">
+                                        </div>
+                                        <textarea class="footer_contact_input footer_contact_textarea" placeholder="Message" required="required"></textarea>
+                                        <button class="footer_contact_button">send message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Footer Hours -->
+                        <div class="col-lg-4 footer_col">
+                            <div class="footer_hours">
+                                <div class="footer_hours_title">Opening Hours</div>
+                                <ul class="hours_list">
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Monday – Thursday</div>
+                                        <div class="ml-auto">8.00 – 12.00</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Friday</div>
+                                        <div class="ml-auto">8.00 - 11.00</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Saturday</div>
+                                        <div class="ml-auto">9.30 – 10.00</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Sunday</div>
+                                        <div class="ml-auto">9.30 – 11.00</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    
+
+    
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    </body>
+    </html>       

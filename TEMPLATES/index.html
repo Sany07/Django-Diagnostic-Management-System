@@ -1,0 +1,163 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="home">
+	<div class="background_image" style=background-image:url({% static 'images/index_hero.jpg' %})></div>
+
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="home_content">
+							<div class="home_title">Medical Services that you can trust</div>
+							<div class="home_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien.</div>
+							<div class="button home_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+	<!-- Info Boxes -->
+
+	<div class="info">
+		<div class="container">
+			<div class="row row-eq-height">
+				<div class="col-lg-4 info_box_col">
+					<div class="info_box">
+						<div class="info_image"><img src="{% static 'images/info_1.jpg' %}" alt=""></div>
+						<div class="info_content">
+							<div class="info_title">Free Consultations</div>
+							<div class="info_text">Arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas finibus, dolor risus mollis.</div>
+							<div class="button info_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Info Box -->
+				<div class="col-lg-4 info_box_col">
+					<div class="info_box">
+						<div class="info_image"><img src="{% static 'images/info_2.jpg' %}" alt=""></div>
+						<div class="info_content">
+							<div class="info_title">Emergency Care</div>
+							<div class="info_text">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas finibus, dolor risus.</div>
+							<div class="button info_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+						</div>
+					</div>
+				</div>
+								<div class="col-lg-4 info_box_col">
+					<div class="info_box">
+						<div class="info_image"><img src="{% static 'images/info_2.jpg' %}" alt=""></div>
+						<div class="info_content">
+							<div class="info_title">Emergency Care</div>
+							<div class="info_text">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas finibus, dolor risus.</div>
+							<div class="button info_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- CTA -->
+
+	<div class="cta">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/cta_1.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="cta_container d-flex flex-xl-row flex-column align-items-xl-start align-items-center justify-content-xl-start justify-content-center">
+						<div class="cta_content text-xl-left text-center">
+							<div class="cta_title">Make an appointment with one of our professional Doctors.</div>
+							<div class="cta_subtitle">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas.</div>
+						</div>
+						<div class="button cta_button ml-xl-auto"><a href="#"><span>call now</span><span>call now</span></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Services -->
+
+	<div class="services">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">Our Services</div>
+					<div class="section_subtitle">to choose from</div>
+				</div>
+			</div>
+			<div class="row icon_boxes_row">
+				
+				<!-- Icon Box -->
+				{% for service in services %}
+				<div class="col-xl-4 col-lg-6">
+					<div class="icon_box">
+						<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
+							<div class="icon_box_icon"><img src="{% static 'images/icon_1.svg' %}" alt=""></div>
+							<div class="icon_box_title">{{ service.Title }}</div>
+						</div>
+						<div class="icon_box_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem maximus malesuada lorem maximus mauris.</div>
+					</div>
+				</div>
+			
+			{% endfor %}
+
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="button services_button ml-auto mr-auto"><a href="#"><span>read more</span><span>read more</span></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Departments -->
+
+	<div class="departments">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">Our Departments</div>
+					<div class="section_subtitle">to choose from</div>
+				</div>
+			</div>
+			<div class="row dept_row">
+				<div class="col">
+					<div class="dept_slider_container_outer">
+						<div class="dept_slider_container">
+
+							<!-- Slider -->
+							<div class="owl-carousel owl-theme dept_slider">
+								
+								<!-- Slide -->
+								{% for dep in departments %}
+									<div class="owl-item dept_item">
+										<a href="{% url 'detail' dep.id %}">
+											<div class="dept_image"><img src="{{ dep.Image.url }}" alt=""></div>
+											<div class="dept_content">
+												<div class="dept_title">{{ dep.Name }}</div>
+												<div class="dept_link"><a href="{% url 'detail' dep.id %}">Read More</a></div>
+											</div>
+										</a>
+									</div>	
+								{% endfor %}
+
+							</div>
+							
+						</div>
+
+						<!-- Dept Slider Nav -->
+						<div class="dept_slider_nav"><i class="fa fa-chevron-right"></i></div>
+
+					</div>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
