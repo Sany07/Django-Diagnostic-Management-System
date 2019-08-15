@@ -1,5 +1,10 @@
 from django.contrib import admin
 from .models import Appointment
-# Register your models here.
 
-admin.site.register(Appointment)
+
+class MyModelAdmin(admin.ModelAdmin):
+    
+    readonly_fields  = ['date']
+
+admin.site.register(Appointment , MyModelAdmin)  
+
