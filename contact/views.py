@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from departments.models import Doctor,Department
 from .models import Appointment
 
@@ -11,10 +11,11 @@ def contact(request):
         message= request.POST['message']
         department= request.POST['info_form_dep']
         doctor= request.POST['info_form_doc']
-
+        
         appointment = Appointment(name=name, phone_no=phone_no, message=message, department=department, doctor=doctor )
         appointment.save()
 
+        return redirect('contact')
 
     departments=Department.objects.all()
     doctor=Doctor.objects.all()

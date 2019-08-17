@@ -31,15 +31,19 @@
 				<div class="col-lg-12 contact_col">
 					<div class="contact_form">
 						<div class="contact_form_container">
-							<form action="#" id="contact_form" class="contact_form">
-								<input type="text" id="contact_input" class="contact_input" placeholder="Your Name" required="required">
-								<input type="email" id="contact_email" class="contact_input" placeholder="Your E-mail" required="required">
-								<input type="text" id="contact_subject" class="contact_input" placeholder="Phone Number" required="required">
-								<input type="password" id="contact_subject" class="contact_input" placeholder="Password" required="required">
-								<input type="password" id="contact_subject" class="contact_input" placeholder="Confirm Password" required="required">
-								<button class="contact_button" id="contact_button">Sign Up</button>	<p>Already have an Account? <a href="#"> Login Now!</a></p>
+							<form action='' method="POST" class="info_form" id="info_form">
+								{% csrf_token %}
+								<input type="text" name="first_name" class="contact_input" placeholder="Your First Name" required="required">
+								<input type="text" name="last_name" class="contact_input" placeholder="Your Last Name" required="required">
+								<input type="text" name="user_name" class="contact_input" placeholder="User Name" required="required">
+								<input type="email" name="email" class="contact_input" placeholder="Your E-mail" required="required">
+								<input type="text" name="phone" class="contact_input" placeholder="Phone Number" required="required">
+								<input type="password1" name="password1" class="contact_input" placeholder="Password" required="required">
+								<input type="password2" name="password2" class="contact_input" placeholder="Confirm Password" required="required">
+								<button class="contact_button" id="contact_button">Sign Up</button>
 							</form>
 						</div>
+						<p>Already have an Account? <a href="#"> Login Now!</a></p>
 					</div>
 				</div>
 				</div>
