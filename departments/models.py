@@ -17,6 +17,7 @@ class Doctor(models.Model):
     Name=models.CharField(max_length=50 , null=False)   
     Designation=models.CharField(max_length=40 , null=False)    
     Department=models.ForeignKey(Department,on_delete=models.CASCADE)
+    Description=models.TextField(null=True)
     Image=models.ImageField(upload_to='doctors')
         
     

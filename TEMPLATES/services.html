@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load solo_tags %}
 {% block content %}
 
+{% get_solo 'settings.Vision' as vision %}
+{% get_solo 'settings.Mission' as mission %}
+{% get_solo 'settings.Center' as center %}
 <div class="super_container">
 	<div class="home_about">
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/services.jpg' %}" data-speed="0.8"></div>
@@ -58,36 +62,29 @@
 	<!-- Boxes -->
 
 	<div class="boxes d-flex flex-lg-row flex-column align-items-start justify-content-start">
-		{% for mission in mission %}
-			{% if mission.Publish %}
+	
 		<!-- Box -->
 			<div class="box">
 				<div class="background_image" style="background-image:url({% static 'images/box_1.jpg' %})"></div>
-				<div class="box_title">{{ mission.Title }}</div>
-				<div class="box_subtitle">{{ mission.Subtitle }}</div>
-				<div class="box_text">{{ mission.Description }}</div>
-				<div class="button box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
-			</div>
-			{% endif %}
-		{% endfor %}	
-
-		{% for vision in vision %}
-			{% if vision.Publish %}
-			<div class="box">
-				<div class="background_image" style="background-image:url({% static 'images/box_2.jpg' %})"></div>
 				<div class="box_title">{{ vision.Title }}</div>
 				<div class="box_subtitle">{{ vision.Subtitle }}</div>
 				<div class="box_text">{{ vision.Description }}</div>
+				<div class="button box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+			</div>
+		
+
+	
+			<div class="box">
+				<div class="background_image" style="background-image:url({% static 'images/box_2.jpg' %})"></div>
+				<div class="box_title">{{ mission.Title }}</div>
+				<div class="box_subtitle">{{ mission.Subtitle }}</div>
+				<div class="box_text">{{ mission.Description }}</div>
 				<div class="button button_2 box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
 			</div>
-			{% endif %}
-		{% endfor %}	
 
 
 
-		{% for center in center %}
-
-			{% if center.Publish %}
+	
 				<div class="box">
 					<div class="background_image" style="background-image:url({% static 'images/box_3.jpg' %})"></div>
 					<div class="box_title">{{ center.Title }}</div>
@@ -95,8 +92,7 @@
 					<div class="box_text">{{ center.Description }}</div>
 					<div class="button box_button"><a href="#"><span>read more</span><span>read more</span></a></div>
 				</div>
-			{% endif %}
-		{% endfor %}	
+
 
 	
 	</div>

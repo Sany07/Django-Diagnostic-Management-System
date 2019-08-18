@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'services',
     'departments',
     'contact',
-    'account'
+    'account',
+    'solo',
+    'settings'
+
 ]
 
 MIDDLEWARE = [

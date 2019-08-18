@@ -1,4 +1,7 @@
 {% load staticfiles %}
+{% load solo_tags %}
+{% get_solo 'settings.SiteConfiguration' as site_config %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +27,7 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="logo">
-								<a href="#">Myhealth<span>+</span></a>	
+								<a href="/">{{ site_config.branding }}<span>+</span></a>	
 							</div>
 						</div>
 					<div class="col-lg-8">
@@ -38,7 +41,7 @@
                             </div>
                             <div class="header_top_phone">
                                 <i class="fa fa-phone"></i>
-                                <span>+8801700000000</span>
+                                <span>{{ site_config.phone }}</span>
                             </div>
                         </div>
 					</div>
@@ -102,7 +105,7 @@
                         <div class="col-lg-3 footer_col">
                             <div class="footer_about">
                                 <div class="logo">
-                                    <a href="#">health<span>+</span></a>	
+                                    <a href="#">{{ site_config.branding }}<span>+</span></a>	
                                 </div>
                                 <div class="footer_about_text">
                                 
@@ -121,7 +124,7 @@
                                     </ul>
                                 </div>
                                 <div class="copyright">
-                                        Copyright &copy;</script> All rights reserved 
+                                        {{ site_config.copyright }}
                                 </div>
                             </div>
                         </div>
