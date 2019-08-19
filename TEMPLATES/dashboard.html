@@ -1,29 +1,41 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load staticfiles %}
+{% load solo_tags %}
+{% get_solo 'settings.SiteConfiguration' as site_config %}
+
+
 {% block content %}
 
-	<div class="home_contact">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/contact.jpg' %}" data-speed="0.8"></div>
+  <div class="d-flex padding "id="wrapper">
+    <div class="header_nav_container border-right " id="sidebar-wrapper">
+      <div class="list-group list-group-flush dashboard_t">
 
-	
+		{% if user.is_staff %}
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action ac header_nav_container">Add Pathents</a>
+			<a href="{% url 'email' %}" class="list-group-item list-group-item-action header_nav_container">email</a>	
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
+			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+		{% else %}
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
+			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+		{% endif %}
 
-		<div class="home_container_contact">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="home_content">
-							<div class="home_title_contact">Dashboard</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	  </div>
+	  
+    </div>
+    <!-- /#sidebar-wrapper -->
 
-	<!-- Dashboard -->
+    <!-- Page Content -->
+    
+      <div class="container-fluid">
+        <h1 class="mt-4">Simple Sidebar</h1>
+        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+      </div>
+  
+    <!-- /#page-content-wrapper -->
 
+  </div>
+  <!-- /#wrapper -->
 
-	</div>
-
-
-{% endblock %}
+  {% endblock %}

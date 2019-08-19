@@ -67,7 +67,7 @@
 
                                                 {% if user.is_authenticated %}
 
-                                                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                                <li><a href="{% url 'dashboard' %}">{{ user.get_username }} (Dashboard)</a></li>
                                                 <li>  
                                                     <a href="javascript:{document.getElementById('logout').submit()}">
                                                       <i class="fa fa-sign-out"></i> Logout </a>
