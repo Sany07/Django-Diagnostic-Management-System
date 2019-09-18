@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}	
+	<!-- Home -->
+
+	<div class="home_about">
+
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/about.jpg' %}" data-speed="0.8"></div>
+
+		<div class="home_container_about">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title_about">	{{ doctors.Name }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+	<div class="about about-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">A Few Words About Our Doctor {{ doc.Name }} </div>
+					<div class="section_subtitle">too choose from</div>
+				</div>
+			</div>
+			<div class="row about_row row-eq-height">
+				<div class="col-lg-4">
+					<div class="logo">
+						<a href="#"> {{ doc.Name }} <span>+</span></a>	
+					</div>
+					<div class="about_text_highlight"> {{ doc.Designation }} </div>
+					<div class="about_text">
+						<p>{{ doc.Description }}</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="about_text_2">
+						<p>Donec lorem maximus malesuada lorem max imus mauris. Proin vitae tortor nec risus tristiq ue efficitur. Aliquam luctus est urna, id aliqu am orci tempus sed. Aenean sit amet leo id enim dapibus eleifend. Phasellus ut erat dapibus, tempor sapien non, porta urna. Cras quis ante nibh. Proin tincidunt gravida interdum. Proin sed urna mauris.</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="about_image"><img src="{{ doc.Image.url }}" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+{% endblock %}
+
+
+
+	
+

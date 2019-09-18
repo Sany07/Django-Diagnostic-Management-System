@@ -6,6 +6,9 @@ from django.contrib import messages , auth
 from .forms import EmailForm
 from django.core.mail import EmailMessage
 from django.conf import settings
+from departments.models import Doctor,Department
+from services.models import Test
+from contact.models import Patients
 
 def register(request):
 
@@ -102,3 +105,51 @@ def send_email(request):
             context
             
     return render(request,'email.html')	
+
+@staff_member_required
+def addpatient(request):
+
+    if request.method=='POST':
+        name= request.POST['name']
+        sex= request.POST['sex']
+        phone_no= request.POST['mobile']
+        email= request.POST['email']
+        age= request.POST['age']
+        message= request.POST['message']
+     #   doctor= request.POST['info_form_doc']
+    #    test= request.POST['info_form_test']
+        addpatient = Patients(name=name, phone_no=phone_no, message=message, age=age,sex=sex ,email=email)
+        addpatient.save()
+
+        return redirect('addpatient')
+    
+    addpatient=Patients.objects.last()
+
+    
+
+    context={
+
+        'addpatient':addpatient,
+     
+    }
+
+    return render(request ,'addpatient.html',context)   
+
+
+@staff_member_required
+def assign(request, id):
+    test_list=Test.objects.all()
+    patient=Patients.objects.get(pk=id)
+    context={
+        'test_list':test_list,
+        'patient':patient
+    }
+    return render(request ,'assign.html',context)      
+
+@staff_member_required
+def invoice(request):
+    patient_details=Patients.objects.last()
+    context={
+        'patient_details':patient_details
+    }
+    return render(request ,'invoice.html',context)  

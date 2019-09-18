@@ -88,7 +88,36 @@ h1, h2, h3, h4, h5, h6
 	font-family: 'Montserrat', sans-serif;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
+.product-name  {
+	display: inline-block;
 
+	width: 34%;
+	font-size: 16px;
+
+}
+
+.p_area{
+
+	 padding: 1px 20px;;
+}
+.padding_nav{
+	padding-left: 105px !important;
+}
+.padding_nav_left{
+	padding-left: 40px !important;
+}
+
+
+.product-price  {
+	display: inline-block;
+	width: 88px !important;
+	padding-right: 30px
+}
+ .add-to-cart {
+	display: inline-block;
+	
+	padding-left: 117px;
+}
 .form-control
 {
 	color: #db5246;
@@ -293,7 +322,7 @@ section
 
 .header_top_nav {
 
-    margin-top: 5px;
+    
 
 }
 
@@ -301,6 +330,15 @@ section
 
     margin-top: 2px;
 
+}
+.ids {
+	margin: 54px 0px;
+	border: 1px solid #ddd;
+
+}
+
+.dis {
+    margin: 54px 0px;
 }
 .logo a
 {
@@ -861,6 +899,29 @@ section
 	font-style: italic;
 	color: #828282;
 }
+
+.contact_form_container_contact {
+    margin-top: 40px;
+}
+
+
+.info_select_contact {
+    display: block;
+    position: relative;
+    appearance: none;
+    background-image: url(../images/down.png);
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    color: #828282;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
 .info_select
 {
 	display: block;
@@ -875,7 +936,9 @@ section
 	font-weight: 500;
 	font-style: italic;
 	color: #828282;
-    cursor: pointer;
+	cursor: pointer;
+	background: #e5ecf1;
+	margin-bottom: 25px;
 }
 .info_form_button
 {
@@ -1324,8 +1387,13 @@ section
 
 }
 
+.padding-inv{
+	padding-top: 169px;
+margin: 100px;
+}
 .padding{
 	padding-top: 169px;
+
 }
   
   #sidebar-wrapper {
@@ -1374,4 +1442,124 @@ section
 	z-index: 1;
 	text-transform: uppercase;
 	transition: all 200ms ease;
+}
+
+#shopping-cart {
+	margin: 1.5em 0;
+}
+
+.shopping-cart {
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.shopping-cart th {
+	font-size: 1.3em;
+	padding: 0.8em;
+	width: 33.3%;
+	border: 1px solid #ddd;
+	text-transform: uppercase;
+}
+
+.shopping-cart td {
+	padding: 0.8em;
+	width: 33.3%;
+	border: 1px solid #ddd;
+}
+
+.shopping-cart tr:nth-child(even) {
+	background: #fafafa;
+},
+
+.shopping-cart td.pdelete {
+	text-align: center;
+}
+
+.pdelete a,
+.pdelete a:hover {
+	color: #c00;
+	text-decoration: none;
+	font-size: 2.5em;
+	display: block;
+	text-align: center;
+}
+
+#shopping-cart-actions {
+	margin: 1.5em 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+#shopping-cart-actions li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+#pricing {
+	padding: 0.5em;
+	margin: 1em 0;
+	background: #fafafa;
+}
+
+
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+ body {
+    font-family: 'Open Sans', sans-serif;
+    font-size:16px;
+    line-height:30px;
+}
+.pad-top-botm {
+    padding-bottom:40px;
+    padding-top:60px;
+}
+h4 {
+    text-transform:uppercase;
+}
+/* =============================================================
+   PAGE STYLES
+ ============================================================ */
+
+.contact-info span {
+    font-size:14px;
+    padding:0px 50px 0px 50px;
+}
+
+.contact-info hr {
+    margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.client-info {
+    font-size:15px;
+}
+
+.ttl-amts {
+    text-align:right;
+    padding-right:50px;
+}
+
+.btn {
+
+    background: #ddd;
+    color: black;
+   
+
+}
+
+
+.size{
+
+	padding: 10px !important;
+}
+
+.info_form_button:hover{
+
+	color:#ddd;
+
 }

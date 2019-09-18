@@ -31,7 +31,7 @@
 				<div class="col-lg-8 contact_col">
 					<div class="contact_form">
 						<div class="contact_title">Get in touch</div>
-						<div class="contact_form_container">
+						<div class="contact_form_container_contact">
 							<form action="#" id="contact_form" class="contact_form">
 								<input type="text" id="contact_input" class="contact_input" placeholder="Your Name" required="required">
 								<input type="email" id="contact_email" class="contact_input" placeholder="Your E-mail" required="required">
@@ -49,12 +49,12 @@
 						<div class="info_form_title">Make an Appointment</div>
 						<form action='' method="POST" class="info_form" id="info_form">
 							{% csrf_token %}
-							<select name="info_form_dep" id="info_form_dep" class="info_form_dep info_input info_select">
+							<select name="info_form_dep" id="info_form_dep" class="info_form_dep info_input info_select_contact">
 								{% for doc in departments %}
 									<option>{{ doc.Name }}</option>
 								{% endfor %}
 							</select>
-							<select name="info_form_doc" id="info_form_doc" class="info_form_doc info_input info_select">
+							<select name="info_form_doc" id="info_form_doc" class="info_form_doc info_input info_select_contact">
 								{% for doc in doctors %}
 									<option>{{ doc.Name}}</option>
 								{% endfor %}

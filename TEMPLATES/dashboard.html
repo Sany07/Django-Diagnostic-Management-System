@@ -11,7 +11,8 @@
       <div class="list-group list-group-flush dashboard_t">
 
 		{% if user.is_staff %}
-			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action ac header_nav_container">Add Pathents</a>
+      <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action ac header_nav_container">Dashboard</a>
+      <a href="{% url 'addpatient' %}" class="list-group-item list-group-item-action header_nav_container">Add Pathents</a>
 			<a href="{% url 'email' %}" class="list-group-item list-group-item-action header_nav_container">email</a>	
 			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
 			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
@@ -27,15 +28,20 @@
 
     <!-- Page Content -->
     
-      <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+			
+    <div class="container-fluid">
+    <div class="col-lg-12 contact_col">
+      <div class="contact_form">
+        <div class="contact_form_container">
+              Wc to Admin Panel
+        </div>
       </div>
-  
+    </div>
+  </div>   
+  </div>
     <!-- /#page-content-wrapper -->
 
-  </div>
+
   <!-- /#wrapper -->
 
   {% endblock %}

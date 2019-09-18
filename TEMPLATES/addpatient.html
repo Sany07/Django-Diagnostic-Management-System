@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load solo_tags %}
+{% get_solo 'settings.SiteConfiguration' as site_config %}
+
+
+{% block content %}
+
+  <div class="d-flex padding "id="wrapper">
+    <div class="header_nav_container border-right " id="sidebar-wrapper">
+      <div class="list-group list-group-flush dashboard_t">
+
+    {% if user.is_staff %}
+      <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action  header_nav_container">Dashboard</a>
+      <a href="{% url 'addpatient' %}" class="list-group-item list-group-item-action ac header_nav_container">Add Pathents</a>
+			<a href="{% url 'email' %}" class="list-group-item list-group-item-action header_nav_container">email</a>	
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
+			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+		{% else %}
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
+			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+		{% endif %}
+
+	  </div>
+	  
+    </div>
+    <div class="container ">
+        <div class="row">
+    <div class="col-lg-12 contact_col">
+
+        <h1>  <a style="padding:20px;" class="info_form_button size" href="{% url 'assign' addpatient.id %}">Assign Test For {{ addpatient.name }} </a></h1>
+     
+      <div class="contact_form">
+        <div class="contact_form_container">
+          <form action="" method="POST" class="info_form" id="info_form">
+
+            {% csrf_token %}
+            <input type="text" name="name" id="" class="contact_input" placeholder="Name" required="required">
+            <input type="text" name="age" id="contact_input" class="contact_input" placeholder="Age" required="required">
+            <input type="text" name="mobile" id="contact_input" class="contact_input" placeholder="Mobile Number" required="required">
+            <input type="text" name="email" id="contact_input" class="contact_input" placeholder="Email">
+            <select name="sex" class="contact_input info_form_dep info_input info_select " >
+              <option>Male</option>
+              <option>Female</option> 
+            </select>
+
+            <textarea name="message" class="contact_input contact_textarea" id="contact_textarea" placeholder="Message" required="required"></textarea>
+            <button class="info_form_button" name="Next">ADD</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>   
+  </div>  
+</div>
+    <!-- /#page-content-wrapper -->
+
+
+  <!-- /#wrapper -->
+
+  {% endblock %}

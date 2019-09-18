@@ -1,5 +1,6 @@
 from django.shortcuts import render , redirect
 from departments.models import Doctor,Department
+from services.models import Test
 from .models import Appointment
 
 # Create your views here.
@@ -26,3 +27,6 @@ def contact(request):
     }
 
     return render(request ,'contact.html',context)   
+
+
+

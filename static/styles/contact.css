@@ -56,7 +56,9 @@
 }
 .contact_form_container
 {
-	margin-top: 31px;
+	margin-top: 40px;
+	margin-left: 157px;
+margin-right: 162px;
 }
 .contact_form input:not(:last-child)
 {

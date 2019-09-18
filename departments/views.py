@@ -10,11 +10,22 @@ def About(request):
 
     context={
 
-        'departments':departments,
         'doctors':doctor
     }
 
     return render(request,'about.html',context)
+    
+def doc_detail(request, id):
+
+    doc_detail=Doctor.objects.get(pk=id)
+    
+    context={
+
+        
+        'doc':doc_detail
+    }
+
+    return render(request,'doc_detail.html',context)
 
 def detail(request, id):
 
@@ -22,8 +33,12 @@ def detail(request, id):
     
     context={
 
-        'dep_detail':dep_detail,
-        #  'doctors':doctor
+        'dep_detail':dep_detail
     }
 
     return render(request,'detail.html',context)
+
+
+
+
+

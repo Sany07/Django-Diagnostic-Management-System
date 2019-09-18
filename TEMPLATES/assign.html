@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load solo_tags %}
+{% get_solo 'settings.SiteConfiguration' as site_config %}
+
+
+{% block content %}
+
+<div class="d-flex padding "id="wrapper">
+    <div class="header_nav_container border-right " id="sidebar-wrapper">
+      <div class="list-group list-group-flush dashboard_t">
+
+    {% if user.is_staff %}
+      <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action  header_nav_container">Dashboard</a>
+      <a href="{% url 'addpatient' %}" class="list-group-item list-group-item-action ac header_nav_container">Add Pathents</a>
+			<a href="{% url 'email' %}" class="list-group-item list-group-item-action header_nav_container">email</a>	
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
+			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+		{% else %}
+			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
+			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+		{% endif %}
+
+	  </div>
+	  
+    </div>
+<div id="site">
+<div class="container-fluid">
+<div class="row">
+
+  <div class="col-lg-7 d-block">
+    <div class="ids"> 
+        <table class="table">
+            <thead>
+              <tr>
+                
+                <th class="padding_nav_left" scope="col">First</th>
+                <th class="padding_nav" scope="col">Last</th>
+                <th class="padding_nav" scope="col">Handle</th>
+              </tr>
+            </thead>
+     
+          </table>
+
+    <ul>
+      {% for test in test_list %}
+        <li>
+        
+          <div class="p_area product-description" data-name="{{ test.test}}" data-price="{{ test.price}}">
+          <p> <h3 class="product-name">{{ test.test}}</h3>
+            <p style="width:89px;" class="product-price">{{ test.price}}</p>
+            <form class="add-to-cart" action="" method="post">
+              {% csrf_token %}
+            <div class="sxd">
+                
+                <input type="text" class="qty q_input" value="1" />
+              <input type="submit" value="Add" class="btn" />
+            </div>
+            </form>
+          </p> 
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    </div> 
+  </div>
+
+      <div class="col-lg-5 d-block">
+          <div class="dis">
+<div id="site">
+
+  <form id="shopping-cart" action="" method="post">
+    {% csrf_token %}
+    <table class="shopping-cart">
+ 
+      <tbody>
+      
+      </tbody>
+    </table>
+    <p id="sub-total">
+      <strong>Sub Total</strong>: <span id="stotal"></span>
+    </p>
+    <ul id="shopping-cart-actions">
+      <li>
+        <input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" />
+      </li>
+      <li>
+          </a><a class="btn" href="{% url 'invoice' %}" >CheckOut</a>
+      </li>
+    </ul>
+  </form>
+</div>
+</div></div>
+
+</div>
+</div>
+</div></div>
+{% endblock %}
