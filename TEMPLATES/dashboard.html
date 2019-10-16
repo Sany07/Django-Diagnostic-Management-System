@@ -14,11 +14,10 @@
       <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action ac header_nav_container">Dashboard</a>
       <a href="{% url 'addpatient' %}" class="list-group-item list-group-item-action header_nav_container">Add Pathents</a>
 			<a href="{% url 'email' %}" class="list-group-item list-group-item-action header_nav_container">email</a>	
-			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
-			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+			<a href="{% url 'report' %}" class="list-group-item list-group-item-action header_nav_container">Reports</a>
 		{% else %}
-			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
-			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+      <a href="{% url 'dashboard' %}" class="p-3 list-group-item list-group-item-action ac header_nav_container">Dashboard</a>
+      <a href="{% url 'report' %}" class="p-3 list-group-item list-group-item-action header_nav_container">Reports</a>
 		{% endif %}
 
 	  </div>

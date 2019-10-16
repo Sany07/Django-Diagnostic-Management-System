@@ -14,11 +14,10 @@
       <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action  header_nav_container">Dashboard</a>
       <a href="{% url 'addpatient' %}" class="list-group-item list-group-item-action ac header_nav_container">Add Pathents</a>
 			<a href="{% url 'email' %}" class="list-group-item list-group-item-action header_nav_container">email</a>	
-			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
-			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+			<a href="{% url 'report' %}" class="list-group-item list-group-item-action header_nav_container">Reports</a>
 		{% else %}
 			<a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action header_nav_container">Status</a>
-			<a href="#" class="list-group-item list-group-item-action header_nav_container">Reports</a>
+			<a href="{% url 'report' %}" class="list-group-item list-group-item-action header_nav_container">Reports</a>
 		{% endif %}
 
 	  </div>
@@ -28,8 +27,32 @@
         <div class="row">
     <div class="col-lg-12 contact_col">
 
-        <h1>  <a style="padding:20px;" class="info_form_button size" href="{% url 'assign' addpatient.id %}">Assign Test For {{ addpatient.name }} </a></h1>
-     
+        {% if addpatient %}
+                  
+        <div class="col-lg-12 contact_col mt-5">
+            <table class="table">
+                <thead>  
+                 <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Assign</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr>
+                    <th scope="row"> {{ addpatient.name }}</th>
+                    <td> {{ addpatient.sex }}</td>
+                    <td> {{ addpatient.message }}</td>
+                    <td><a href="{% url 'assign' addpatient.id %}">Assign Test</a></td>
+            
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      {% endif %}                     
+
       <div class="contact_form">
         <div class="contact_form_container">
           <form action="" method="POST" class="info_form" id="info_form">

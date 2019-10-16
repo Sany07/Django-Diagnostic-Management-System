@@ -9,6 +9,8 @@ from django.conf import settings
 from departments.models import Doctor,Department
 from services.models import Test
 from contact.models import Patients
+from .models import Report
+
 
 def register(request):
 
@@ -121,19 +123,19 @@ def addpatient(request):
         addpatient = Patients(name=name, phone_no=phone_no, message=message, age=age,sex=sex ,email=email)
         addpatient.save()
 
-        return redirect('addpatient')
-    
-    addpatient=Patients.objects.last()
+        
+        addpatient=Patients.objects.last()
 
     
 
-    context={
+        context={
 
-        'addpatient':addpatient,
-     
-    }
+            'addpatient':addpatient,
+        
+        }
 
-    return render(request ,'addpatient.html',context)   
+        return render(request ,'addpatient.html',context)   
+    return render(request ,'addpatient.html')   
 
 
 @staff_member_required
@@ -152,4 +154,32 @@ def invoice(request):
     context={
         'patient_details':patient_details
     }
-    return render(request ,'invoice.html',context)  
+    return render(request ,'invoice.html',context)
+    
+
+@login_required
+def report(request):
+
+    if request.method=='POST':
+        userid= request.POST['userid']
+        email= request.POST['email']
+
+        try:
+            cs=Patients.objects.filter(id=userid , email=email)
+            if cs:
+                report_update = Report.objects.filter(userid=userid)
+
+                context={
+                    'report_update':report_update
+                }
+    
+                return render(request ,'reports.html',context)  
+
+        except:   
+            pass
+ 
+    return render(request ,'reports.html')  
+
+
+
+
