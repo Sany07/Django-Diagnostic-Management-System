@@ -1,6 +1,6 @@
 
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
 
 <div class="home">
@@ -13,8 +13,7 @@
 						<div class="home_content">
 							<div class="home_title">Medical Services that you can trust</div>
 							<div class="home_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien.</div>
-							<div class="button home_button"><a href="#"><span>read more</span><span>read more</span></a></div>
-						</div>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -30,9 +29,8 @@
 						<div class="info_image"><img src="{% static 'images/info_1.jpg' %}" alt=""></div>
 						<div class="info_content">
 							<div class="info_title">Free Consultations</div>
-							<div class="info_text">Arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas finibus, dolor risus mollis.</div>
-							<div class="button info_button"><a href="#"><span>read more</span><span>read more</span></a></div>
-						</div>
+							<div class="info_text">Sometimes, just talking to somebody, finding out what you're dealing with, it can help bring some peace of mind. When that somebody is us, the first consultation.</div>
+							</div>
 					</div>
 				</div>
 
@@ -42,18 +40,16 @@
 						<div class="info_image"><img src="{% static 'images/info_2.jpg' %}" alt=""></div>
 						<div class="info_content">
 							<div class="info_title">Emergency Care</div>
-							<div class="info_text">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas finibus, dolor risus.</div>
-							<div class="button info_button"><a href="#"><span>read more</span><span>read more</span></a></div>
-						</div>
+							<div class="info_text">Emergency medicine, also known as accident and emergency medicine, is the medical specialty concerned with the care of illnesses or injuries requiring immediate medical attention.</div>
+							</div>
 					</div>
 				</div>
 								<div class="col-lg-4 info_box_col">
 					<div class="info_box">
 						<div class="info_image"><img src="{% static 'images/info_2.jpg' %}" alt=""></div>
 						<div class="info_content">
-							<div class="info_title">Emergency Care</div>
-							<div class="info_text">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas finibus, dolor risus.</div>
-							<div class="button info_button"><a href="#"><span>read more</span><span>read more</span></a></div>
+							<div class="info_title">24/7 Services</div>
+							<div class="info_text">24/7 Support Services is an around the clock customer support centre in the Philippines. Serving the BPO needs of our clients, 24/7 Support Services.</div>
 						</div>
 					</div>
 				</div>
@@ -72,9 +68,9 @@
 					<div class="cta_container d-flex flex-xl-row flex-column align-items-xl-start align-items-center justify-content-xl-start justify-content-center">
 						<div class="cta_content text-xl-left text-center">
 							<div class="cta_title">Make an appointment with one of our professional Doctors.</div>
-							<div class="cta_subtitle">Morbi arcu neque, scelerisque eget ligula ac, congue tempor felis. Integer tempor, eros a egestas.</div>
+							<div class="cta_subtitle">Make an appointment with one of our professional Doctors..</div>
 						</div>
-						<div class="button cta_button ml-xl-auto"><a href="#"><span>call now</span><span>call now</span></a></div>
+						<div class="button cta_button ml-xl-auto"><a href="{% url 'contact' %}"><span>call now</span><span>call now</span></a></div>
 					</div>
 				</div>
 			</div>
@@ -101,17 +97,12 @@
 							<div class="icon_box_icon"><img src="{% static 'images/icon_1.svg' %}" alt=""></div>
 							<div class="icon_box_title">{{ service.Title }}</div>
 						</div>
-						<div class="icon_box_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem maximus malesuada lorem maximus mauris.</div>
+						<div class="icon_box_text">{{ service.Description }}.</div>
 					</div>
 				</div>
 			
 			{% endfor %}
 
-			</div>
-			<div class="row">
-				<div class="col">
-					<div class="button services_button ml-auto mr-auto"><a href="#"><span>read more</span><span>read more</span></a></div>
-				</div>
 			</div>
 		</div>
 	</div>

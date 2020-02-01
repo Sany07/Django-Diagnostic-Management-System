@@ -76,7 +76,7 @@
 						<div class="doctor">
 							<div class="doctor_image"><img src="{{ doctor.Image.url }}" alt=""></div>
 							<div class="doctor_content">
-								<div class="doctor_name"><a href="#">{{ doctor.Name }}</a></div>
+								<div class="doctor_name"><a href="{% url 'doc_detail' doctor.id %}">{{ doctor.Name }}</a></div>
 								<div class="doctor_title">{{ doctor.Designation }}</div>
 								<div class="doctor_link"><a href="{% url 'doc_detail' doctor.id %}">+</a></div>
 							</div>

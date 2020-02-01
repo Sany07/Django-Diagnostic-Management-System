@@ -42,4 +42,12 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.name
-        
+
+
+class Contact(models.Model):
+    name= models.CharField(max_length=50 , null=False)
+    email= models.CharField(max_length=11 , null=False)
+    message= models.TextField(null=False)
+
+    def __str__(self):
+        return self.name
