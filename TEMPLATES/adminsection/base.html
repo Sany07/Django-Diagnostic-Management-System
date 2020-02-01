@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+{% include 'adminsection/head.html' %}
+
+<body class="cbp-spmenu-push">
+        <div class="main-content">
+                {% include 'adminsection/includes/sidebar.html' %}
+                {% include 'adminsection/includes/header.html' %}
+
+                        {% block content %}
+
+                        {% endblock %}
+
+                        {% include 'adminsection/includes/footer.html' %}
+                        
+                </div>
+                {% include 'adminsection/scripts.html' %}
+</body>
+
+</html>

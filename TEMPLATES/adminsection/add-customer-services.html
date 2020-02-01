@@ -1,0 +1,109 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+{% block content %}
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+	<div class="main-page">
+		<div class="tables">
+			<h3 class="title1">Assign Services</h3>
+			<div class="table-responsive bs-example widget-shadow">
+				<h4>Assign Services:</h4>
+				<form action="" method="POST" >
+					{% csrf_token %}
+					
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Service Name</th>
+								<!-- <th>Ouantity</th> -->
+								<th>Service Price</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+		
+							{% for o in Services %}
+							<tr>
+								<th scope="row">{{ forloop.counter }}</th>
+								<td><input type="hidden" name="customerid" value="{{ customer.id }}"/>{{ o.ServiceName}}</td>
+								<!-- <td><input type="text" name="q_{{ o.id }}" id="q_{{ o.id }}"  value="1"  onchange="check()" disabled /></td> -->
+								<td>
+									<input type="text" name="cost" id="cost_{{ o.id }}" value="{{ o.Cost }}" disabled/>
+								</td>
+								<td><input type="checkbox" name="serviceid" value="{{ o.id }}" onchange="check()"  id="checkbox_{{ o.id }}"><br></td>
+							</tr> 
+						{% endfor %}
+
+							<tr>
+								<th>
+									<h2>Total</h2>
+								</th>
+								<th>
+									<h2 id="total"></h2>   
+								</th>
+								<!-- <th>
+
+									<input type="text" name="discount_price" placeholder="e.g: 100" class="form-control">
+								</th> -->
+							</tr>
+							<tr>
+								<td colspan="5" align="center">
+									<button type="submit" name="submit" class="btn btn-default">Submit</button>
+								</td>
+
+							</tr>
+							
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--footer-->
+<!--//footer-->
+</div>
+<script> 
+     
+	{% for o in Services %}
+   
+			   $('#checkbox_{{ o.id }}').click(function() {
+			   var cb{{ o.id }} = $('#checkbox_{{ o.id }}').is(':checked');
+		   
+			//    $('#q_{{ o.id }}').prop('disabled', !(cb{{ o.id }}));
+			   });
+
+   {% endfor %}
+   var x = document.createElement("INPUT");
+   function check() {
+   
+   var add = 0;  
+   var a = 1;  
+   {% for o in Services  %}
+	   if(document.getElementById('checkbox_{{ o.id }}').checked) {
+	   add += document.getElementById('cost_{{ o.id }}').value * a
+	//    * document.getElementById('q_{{ o.id }}').value;
+	   }  
+   {% endfor %}
+
+   var p = add;
+   var price = p ; 
+   document.getElementById('total').innerHTML = price;  
+
+  	
+ 	// x.setAttribute("name", "total_price");
+  	// x.setAttribute("value", price);
+  	// // x.setAttribute("disabled" , "");
+  
+  	// document.getElementById("total").appendChild(x);
+
+   }
+   
+   check();
+   
+   
+   
+   </script>
+{% endblock %}

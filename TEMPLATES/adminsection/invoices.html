@@ -1,0 +1,44 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+{% block content %}
+<!-- //header-ends -->
+<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="tables">
+					<h3 class="title1">Invoice List</h3>
+					
+					
+				
+					<div class="table-responsive bs-example widget-shadow">
+						<h4>Invoice List:</h4>
+						<table class="table table-bordered"> 
+							<thead> <tr> 
+								<th>#</th> 
+								<th>Invoice Id</th> 
+								<th>Customer Name</th> 
+								<th>Invoice Date</th> 
+								<th>Action</th>
+							</tr> 
+							</thead> <tbody>
+
+							{% for invoice in invoices %}
+								<tr>
+									<th scope="row">{{ forloop.counter }}</th>
+									<td>{{ invoice.BillingNumber}}</td>
+									<td>{{ invoice.Customer.Name}}</td>
+									<td>{{ invoice.Date}}</td>
+									<td><a href="{% url 'viewinvoice' invoice.id %}">View</a></td> 
+								</tr> 
+							{% endfor %}		
+				
+						</tbody> 
+					</table> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+        <!--//footer-->
+	</div>
+	{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+{% block content %}
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+	<div class="main-page">
+		<div class="tables">
+			<h3 class="title1">Search Appointment</h3>
+			<div class="table-responsive bs-example widget-shadow">
+				<h4>Search Appointment / Name / Contact number:</h4>
+				<div class="form-body">
+					<form method="GET" name="search" action="">
+		
+						<p style="font-size:16px; color:red" align="center"> 	
+						
+						</p>
+
+						<div class="form-group"> <label for="exampleInputEmail1">Search by Appointment Number</label>
+							<input id="searchdata" type="text" name="searchdata" required="true" class="form-control">
+
+							<br>
+							<button type="submit" name="search" class="btn btn-primary btn-sm">Search</button>
+					</form>
+				</div>
+
+				{% if appointment_list %}
+				<h4 align="center">Result against "{{ query }}" keyword </h4>
+
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th> Appointment Number</th>
+							<th>Name</th>
+							<th>Mobile Number</th>
+							<th>Appointment Date</th>
+							<th>Appointment Time</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for appointment in appointment_list %}
+						<tr>
+							<th scope="row">{{ forloop.counter }}</th>
+							<td>{{ appointment.AppointmentNumber }}</td>
+							<td>{{ appointment.Name }}</td>
+							<td>{{ appointment.PhoneNumber }}</td>
+							<td>{{ appointment.AppoinmentDate }}</td>
+							<td>{{ appointment.AppoinmentTine }}</td>
+							<td><a href="{% url 'viewappointment' appointment.id %}">View</a></td>
+						</tr>
+
+						{% endfor %}
+					{% else %}
+					{% if query %}
+					<tr>
+						<td colspan="8"> No record found against this search</td>
+
+					</tr>
+					{% endif %} 
+					{% endif %} 
+   
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!--footer-->
+<!--//footer-->
+</div>
+{% endblock %}

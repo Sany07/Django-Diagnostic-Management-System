@@ -1,0 +1,89 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+{% block content %}
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+	<div class="main-page">
+		<div class="tables" id="exampl">
+			<h3 class="title1">Invoice Details</h3>
+
+			<div class="table-responsive bs-example widget-shadow">
+				<h4>Invoice # {{ invoice.BillingNumber }}</h4>
+				<table class="table table-bordered" width="100%" border="1">
+					<tr>
+						<th colspan="6">Customer Details</th>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td>{{ invoice.Customer.Name }}</td>
+						<th>Contact no.</th>
+						<td>{{ invoice.Customer.PhoneNumber }}</td>
+						<th>Email </th>
+						<td>{{ invoice.Customer.Email }}</td>
+					</tr>
+					<tr>
+						<th>Gender</th>
+						<td>
+							{% if invoice.Customer.Gender == '0' %}
+								Male
+							{% else %}
+								Female
+							{% endif %}
+
+						</td>
+						<th>Invoice Date</th>
+						<td colspan="3">{{ invoice.Date }}</td>
+					</tr>
+				
+				</table>
+				<table class="table table-bordered" width="100%" border="1">
+					<tr>
+						<th colspan="3">Services Details</th>
+					</tr>
+					<tr>
+						<th>#</th>
+						<th>Service</th>
+						<th>Cost</th>
+					</tr>
+					{% for service in invoice.Catagories.all %}
+					<tr>
+						<th>{{ forloop.counter }}</th>
+						<th>{{ service.ServiceName }}</th>
+						<th>{{ service.Cost }}</th>
+
+					</tr> 
+					{% endfor %}
+					<tr>
+						<th colspan="2" style="text-align:center">Total Price</th>
+						<th>
+							{{ total.Catagories__Cost__sum }}
+						</th>
+
+					</tr>
+				</table>
+				<p style="margin-top:1%" align="center">
+					<i class="fa fa-print fa-2x" style="cursor: pointer;" OnClick="CallPrint(this.value)"></i>
+				</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--footer-->
+<!--//footer-->
+</div>
+
+
+<script>
+	function CallPrint(strid) {
+		var prtContent = document.getElementById("exampl");
+		var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+		WinPrint.document.write(prtContent.innerHTML);
+		WinPrint.document.close();
+		WinPrint.focus();
+		WinPrint.print();
+		WinPrint.close();
+	}
+</script>
+{% endblock %}

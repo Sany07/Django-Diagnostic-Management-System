@@ -1,0 +1,137 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+{% block content %}
+<!-- //header-ends -->
+<!-- main content start-->
+<div id="page-wrapper">
+  <div class="main-page">
+    <div class="tables">
+      <h3 class="title1">View Appointment</h3>
+      <div class="table-responsive bs-example widget-shadow">
+        <p style="font-size:16px; color:red" align="center"> </p>
+        <h4>View Appointment:</h4>
+
+        <table class="table table-bordered">
+          <tr>
+          <tr>
+            <th>Appointment Number</th>
+            <td>{{ Appoinment.id}}</td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{ Appoinment.Name}}</td>
+
+          </tr>
+
+          <tr>
+            <th>Email</th>
+            <td>{{ Appoinment.Email }}</td>
+
+          </tr>
+          <tr>
+            <th>Mobile Number</th>
+            <td>{{ Appoinment.PhoneNumber }}</td>
+
+          </tr>
+          <tr>
+            <th>Appointment Date</th>
+            <td>{{ Appoinment.AppoinmentDate }}</td>
+
+          </tr>
+
+          <tr>
+            <th>Appointment Time</th>
+            <td>{{ Appoinment.AppoinmentTine|date:"H i A"}}</td>
+          </tr>
+
+          <tr>
+            <th>Services</th>
+            <td>{% for service in Appoinment.Service.all %}
+           {{ service.ServiceName }}
+            {% endfor %}</td>
+          </tr>
+          <tr>
+            <th>Apply Date</th>
+            <td>{{ Appoinment.ApplyDate }}</td>
+          </tr>
+
+
+          <tr>
+            <th>Status</th>
+            <td>
+              {% if Appoinment.Remark %}
+                {% if Appoinment.Remark == '1' %}
+                     Accected
+                {% else %}
+                    Rejected
+                {% endif %}
+              {% else %}
+                  Not Confirm
+              {% endif %}
+            </td>
+
+          </tr>
+        </table>
+        <table class="table table-bordered">
+          {% if not Appoinment.Remark %}
+          <form name="submit" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+            {% if field.name == 'Remark' %}
+            <tr>
+              <th>Status :</th>
+              <td>
+                <select name="Remark" class="form-control wd-450" required="true">
+                  <option value="1" selected="true">Selected</option>
+                  <option value="0">Rejected</option>
+                </select>
+              </td>
+            </tr>
+            {% else %}
+
+            <tr>
+              <th>Note :</th>
+              <td>
+
+                <textarea name="{{ field.name }}" placeholder="{{ field.field.widget.attrs.placeholder }}" rows="12"
+                  cols="14" class="form-control wd-450"></textarea>
+
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+            <tr align="center">
+              <td colspan="2"><button type="submit" name="submit" class="btn btn-az-primary pd-x-20">Submit</button>
+              </td>
+            </tr>
+          </form>
+
+        </table>
+        {% endif %}
+        {% if Appoinment.Remark %}
+        <table class="table table-bordered">
+          <tr>
+            <th>Remark</th>
+            <td>{{ Appoinment.Note }}</td>
+          </tr>
+
+
+          <tr>
+            <th>Remark date</th>
+            <td>{{ Appoinment.RemarkDate }} </td>
+          </tr>
+
+        </table>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+
+<!--//footer-->
+</div>
+
+{% endblock %}
